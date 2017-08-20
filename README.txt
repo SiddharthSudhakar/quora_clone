@@ -1,0 +1,1 @@
+This is a simple Quora like application using MongoDB and Flask
