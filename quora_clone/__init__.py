@@ -34,15 +34,17 @@ Session(app)
 def get_all_posts():
     posts = mongo.db.posts
     output = []
-    for p in posts.find():
-        output.append({'title': posts['title'],
-                       'description': posts['description'],
-                       'posted_by': posts['by'],
-                       'likes': posts['likes'],
-                       'dislikes': posts['dislikes'],
-                       'resolved': posts['resolved'],
-                       'answers': posts['answers']
+    # TODO-development add p['by'] relation through query
+    for p in posts.find().limit(3):
+        # print(p['title'], p['description'], p['likes'], p['dislikes'], p['resolved'], p['answers'])
+        output.append({'title': p['title'],
+                       'description': p['description'],
+                       'likes': p['likes'],
+                       'dislikes': p['dislikes'],
+                       'resolved': p['resolved'],
+                       'answers': p['answers']
                        })
+
     return jsonify({'result': output})
 
 
