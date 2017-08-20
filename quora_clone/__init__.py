@@ -22,7 +22,7 @@ Session(app)
 
 
 @app.cli.command()
-def initdb():
+# def initdb():
     # print ("INIT",os.environ.get("MYSQL_PASSWORD"))
     # """Initializes the database."""
     # db = mysql.connection.cursor()
